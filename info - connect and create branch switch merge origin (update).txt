@@ -1,0 +1,48 @@
+1. Setup Your Identity (One-Time Only)
+Before doing anything, you must tell Git who you are so your commits have your name on them.
+
+Set email: git config --global user.email "rzhools@gmail.com"
+
+Set name: git config --global user.name "rzhools"
+
+Set default branch: git config --global init.defaultBranch main
+
+2. Prepare the Local Folder
+Create the project on your machine and turn it into a Git repository.
+
+Go to your folder: cd ~/vagrant/git-demo
+
+Initialize Git: git init
+
+Create a file: vim README.md
+
+3. Connect to GitHub
+Link your local folder to a repository you created on GitHub.
+
+Set the link: git remote add origin https://github.com/rzhools/demo
+
+Fix the link (if wrong): git remote set-url origin https://github.com/rzhools/demo
+
+Login (No passwords): gh auth login (Follow the browser prompts)
+
+4. Working on a New Feature (The "Test" Branch)
+Never work directly on main if you want to test things first.
+
+Create a branch: git branch test
+
+Move to that branch: git switch test
+
+Make changes: vim README.md
+
+Save changes to Git: git add * then git commit -m "my changes"
+
+Upload the branch: git push --set-upstream origin test
+
+5. Merge & Sync (The Final Goal)
+Once you are happy with the test branch, move the changes into main and update GitHub.
+
+Go back to main: git switch main
+
+Bring in the changes: git merge test
+
+Update GitHub: git push origin main
